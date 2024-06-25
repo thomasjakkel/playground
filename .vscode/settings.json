@@ -1,0 +1,23 @@
+{
+  // Prettier
+  "prettier.configPath": "./frontend-vite-react/.prettierrc",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true, // required
+  "editor.formatOnType": false, // required
+  "editor.formatOnSave": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "files.autoSave": "onFocusChange", // optional but recommended
+  // Eslint
+  "eslint.workingDirectories": ["./frontend-vite-react"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  //
+  "files.eol": "\n" // LF (Unix) instead of CRLF (Windows)
+}

@@ -1,0 +1,9 @@
+**/node_modules
+**/build
+**/dist
+**/coverage
+**/package.json
+**/yarn.lock
+**/package-lock.json
+**/.eslintrc.cjs
+**/README.md
