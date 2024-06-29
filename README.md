@@ -252,6 +252,30 @@ A basic app with:
    })
    ```
 
+6. Setup path aliases
+   Add following to the `tsconfig.json`:
+
+   ```json
+   {
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/*": ["src/*"]
+       }
+     }
+   }
+   ```
+
+   Add following to the `vite.config.ts`:
+
+   ```ts
+   import * as path from "path";
+   ...
+   resolve: {
+     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+   }
+   ```
+
 # Notes
 
 - [Markdown supported languages for syntax highlighting](https://rust-lang.github.io/mdBook/format/theme/syntax-highlighting.html)
