@@ -138,8 +138,8 @@ A basic app with:
    Add the following scripts to the `package.json`:
 
    ```json
-       "format": "prettier --write **/src/**/*.{ts,tsx,css,md,json} --config ./.prettierrc",
-       "format:check": "prettier --check **/src/**/*.{ts,tsx,css,md,json} --config ./.prettierrc"
+   "format": "prettier --write '**/src/**/*.(ts|tsx|css|md|json)' --config .prettierrc",
+   "format:check": "prettier --check '**/src/**/*.(ts|tsx|css|md|json)' --config .prettierrc"
    ```
 
 3. Define working directory in vscode
@@ -199,6 +199,11 @@ A basic app with:
        globals: true,
        environment: 'jsdom',
        setupFiles: ['./src/setupTests.ts'],
+       coverage: {
+         // https://vitest.dev/config/#coverage
+         provider: 'v8',
+         reporter: ['text', 'html', 'json'],
+       },
      },
    })
    ```
@@ -223,7 +228,8 @@ A basic app with:
    Add vitest to the scripts in the `package.json`:
 
    ```json
-   "test": "vitest"
+   "test": "vitest",
+   "test:coverage": "vitest --coverage",
    ```
 
 5. Create first test
