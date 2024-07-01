@@ -282,6 +282,35 @@ A basic app with:
    }
    ```
 
+7. Setup husky pre-commit hook with lint-staged
+
+   ```sh
+   yarn add husky lint-staged --dev
+   npx husky-init && yarn
+   chmod +x .husky/pre-commit
+   ```
+
+   Replace `.husky/pre-commit` content with:
+
+   ```sh
+   #!/bin/sh
+   . "$(dirname "$0")/_/husky.sh"
+   npx lint-staged
+   ```
+
+   Add lint-staged to `package.json`
+
+   ```json
+   {
+     "lint-staged": {
+       "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+         "eslint --fix",
+         "prettier --write"
+       ]
+     }
+   }
+   ```
+
 ### The project structure
 
 Inspiration by this [Blog Post](https://www.robinwieruch.de/react-folder-structure/)

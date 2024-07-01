@@ -10,7 +10,8 @@
     "types": [
       "vitest/globals",
       "@testing-library/jest-dom",
-      "@testing-library/dom"
+      "@testing-library/dom",
+      "@types/node"
     ],
     "baseUrl": ".",
     "paths": {
@@ -32,5 +33,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"]
+  "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts", ".husky/**/*"]
 }

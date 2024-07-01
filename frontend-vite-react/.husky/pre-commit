@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+cd frontend-vite-react
+
+echo "check branch name"
+npx tsx .husky/scripts/check-branch-name.ts
+
+echo "check lint-staged and prettier"
+npx lint-staged
