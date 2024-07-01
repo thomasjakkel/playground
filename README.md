@@ -225,6 +225,12 @@ A basic app with:
      "types": ["vitest/globals", "@testing-library/jest-dom"],
    ```
 
+   and ensure to include the `.test` files in the `tsconfig.json`:
+
+   ```json
+   "include": ["src", "src/**/*.test.tsx", "src/**/*.test.ts"]
+   ```
+
    Add vitest to the scripts in the `package.json`:
 
    ```json
