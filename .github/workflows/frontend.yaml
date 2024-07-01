@@ -1,0 +1,52 @@
+name: test frontend
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+    types: ['opened', 'reopened', 'edited']
+    branches: ['main', 'fix/**', 'dev/**', 'frontend/**', 'backend/**']
+    paths:
+      - 'frontend-vite-react/**'
+      - '!**/docs/**'
+      - '!**/README.md/**'
+
+defaults:
+  run:
+    working-directory: frontend-vite-react
+
+jobs:
+  build:
+    name: test and build frontend
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        #See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }} with yarn cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: frontend-vite-react/yarn.lock
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Format Code
+        run: yarn format:check
+
+      - name: Lint Code
+        run: yarn lint
+
+      - name: Run Unit-Tests
+        run: yarn test:coverage
+
+      - name: Build project
+        run: yarn build
