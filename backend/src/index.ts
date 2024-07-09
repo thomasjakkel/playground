@@ -3,7 +3,7 @@ import { json } from 'body-parser'
 import { errorHandler } from './helper/errorHandler'
 
 const app = express()
-const port = 3000
+const port = 3001
 
 // Middlewares
 app.use(json())
