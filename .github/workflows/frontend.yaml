@@ -3,9 +3,15 @@ name: test frontend
 on:
   workflow_dispatch:
   push:
+    branches: ['main', 'fix/**', 'dev/**', 'frontend/**']
+    paths:
+      - 'frontend-vite-react/**'
+      - '!**/docs/**'
+      - '!**/README.md/**'
+
   pull_request:
     types: ['opened', 'reopened', 'edited']
-    branches: ['main', 'fix/**', 'dev/**', 'frontend/**', 'backend/**']
+    branches: ['main', 'fix/**', 'dev/**', 'frontend/**']
     paths:
       - 'frontend-vite-react/**'
       - '!**/docs/**'
